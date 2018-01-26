@@ -25,6 +25,12 @@
                     <?php } ?>
                 </select>
             </div>
+            
+            <div class="form-group">
+                <label for="custom_field_name"><?php _trans('name'); ?></label>
+                <input type="text" name="custom_field_name" id="custom_field_name" class="form-control"
+                       value="<?php echo $this->mdl_custom_fields->form_value('custom_field_name', true); ?>">
+            </div>
 
             <div class="form-group">
                 <label for="custom_field_label"><?php _trans('label'); ?></label>

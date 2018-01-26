@@ -27,8 +27,8 @@
 
                 <div class="form-group">
                     <label for="custom_values_label"><?php _trans('field'); ?>: </label>
-                    <input type="text" name="custom_values_label" id="custom_values_label" class="form-control"
-                           value="<?php _htmlsc($field->custom_field_label); ?>" disabled="disabled">
+                    <input type="text" name="custom_values_name" id="custom_values_name" class="form-control"
+                           value="<?php _htmlsc($field->custom_values_name); ?>" disabled="disabled">
                 </div>
 
                 <div class="form-group">

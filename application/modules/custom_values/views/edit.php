@@ -15,9 +15,9 @@
                 <?php $this->layout->load_view('layout/alerts'); ?>
 
                 <div class="form-group">
-                    <label for="custom_values_label"><?php _trans('field'); ?></label>
-                    <input type="text" class="form-control" id="custom_values_label"
-                           value="<?php _htmlsc($value->custom_field_label); ?>" disabled="disabled"/>
+                    <label for="custom_field_name"><?php _trans('field'); ?></label>
+                    <input type="text" class="form-control" id="custom_field_name"
+                           value="<?php _htmlsc($value->custom_field_name); ?>" disabled="disabled"/>
                 </div>
 
                 <div class="form-group">

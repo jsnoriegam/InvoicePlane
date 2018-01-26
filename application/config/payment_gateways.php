@@ -389,6 +389,20 @@ $config['payment_gateways'] = array(
             'label' => 'Test Mode',
         ),
     ),
+    'PayU' => array(
+        'apiKey' => array(
+            'type' => 'text',
+            'label' => 'Api Key',
+        ),
+        'accountId' => array(
+            'type' => 'text',
+            'label' => 'Account Id',
+        ),
+        'merchantId' => array(
+            'type' => 'text',
+            'label' => 'Merchant Id',
+        )
+    ),
     'Pin' => array(
         'secretKey' => array(
             'type' => 'password',

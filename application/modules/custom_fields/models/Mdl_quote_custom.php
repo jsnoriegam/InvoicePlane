@@ -34,7 +34,7 @@ class Mdl_Quote_Custom extends Validator
 
     public function default_order_by()
     {
-        $this->db->order_by('custom_field_table ASC, custom_field_order ASC, custom_field_label ASC');
+        $this->db->order_by('custom_field_table ASC, custom_field_order ASC, custom_field_name ASC');
     }
 
 

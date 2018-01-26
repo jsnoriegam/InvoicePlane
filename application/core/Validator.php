@@ -105,6 +105,11 @@ class Validator extends MY_Model
                 'label' => trans('table'),
                 'rules' => 'required'
             ),
+            'custom_field_name' => array(
+                'field' => 'custom_field_name',
+                'label' => trans('name'),
+                'rules' => 'required|regex_match[/^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$/]|max_length[50]'
+            ),
             'custom_field_label' => array(
                 'field' => 'custom_field_label',
                 'label' => trans('label'),

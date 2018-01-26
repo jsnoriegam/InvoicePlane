@@ -61,6 +61,11 @@ class Mdl_Custom_Fields extends MY_Model
                 'label' => trans('table'),
                 'rules' => 'required'
             ),
+            'custom_field_name' => array(
+                'field' => 'custom_field_name',
+                'label' => trans('name'),
+                'rules' => 'required|regex_match[/^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$/]|max_length[50]'
+            ),
             'custom_field_label' => array(
                 'field' => 'custom_field_label',
                 'label' => trans('label'),
@@ -136,11 +141,11 @@ class Mdl_Custom_Fields extends MY_Model
         $custom_tables = $this->custom_tables();
 
         // Check if the user wants to add 'id' as custom field
-        if (strtolower($db_array['custom_field_label']) == 'id') {
+        if (strtolower($db_array['custom_field_name']) == 'id') {
             // Replace 'id' with 'field_id' to avoid problems with the primary key
-            $custom_field_label = 'field_id';
+            $custom_field_name = 'field_id';
         } else {
-            $custom_field_label = strtolower(str_replace(' ', '_', $db_array['custom_field_label']));
+            $custom_field_name = strtolower(str_replace(' ', '_', $db_array['custom_field_name']));
         }
 
         if (in_array($db_array['custom_field_type'], $this->custom_types())) {
@@ -152,7 +157,7 @@ class Mdl_Custom_Fields extends MY_Model
         // Create the name for the custom field column
         $this->load->helper('diacritics');
 
-        $clean_name = preg_replace('/[^a-z0-9_\s]/', '', strtolower(diacritics_remove_diacritics($custom_field_label)));
+        $clean_name = preg_replace('/[^a-z0-9_\s]/', '', strtolower(diacritics_remove_diacritics($custom_field_name)));
 
         $db_array['custom_field_type'] = $type;
 
@@ -271,7 +276,7 @@ class Mdl_Custom_Fields extends MY_Model
                 }
             }
 
-            $values[$field->custom_field_label] = $field->$field_id_fieldlabel;
+            $values[$field->custom_field_name] = $field->$field_id_fieldlabel;
         }
 
         return $values;

@@ -39,12 +39,14 @@ function pdf_create(
     $invoice_array = array();
 
     // mPDF loading
-    if (!defined('_MPDF_TEMP_PATH')) {
+    /*if (!defined('_MPDF_TEMP_PATH')) {
         define('_MPDF_TEMP_PATH', FCPATH . 'uploads/temp/mpdf/');
         define('_MPDF_TTFONTDATAPATH', FCPATH . 'uploads/temp/mpdf/');
-    }
+    }*/
 
-    $mpdf = new \Mpdf\Mpdf();
+    $mpdf = new \Mpdf\Mpdf(array(
+        'tempDir' => FCPATH . 'uploads/temp/mpdf/'
+    ));
 
     // mPDF configuration
     $mpdf->useAdobeCJK = true;
@@ -70,8 +72,8 @@ function pdf_create(
     }
 
     // Check if the archive folder is available
-    if (!(is_dir('./uploads/archive/') || is_link('./uploads/archive/'))) {
-        mkdir('./uploads/archive/', '0777');
+    if (!(is_dir(UPLOADS_FOLDER . 'archive/') || is_link(UPLOADS_FOLDER . 'archive/'))) {
+        mkdir(UPLOADS_FOLDER . 'archive/', '0777');
     }
 
     // Set the footer if voucher is invoice and if set in settings

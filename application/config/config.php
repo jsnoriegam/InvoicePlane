@@ -422,14 +422,14 @@ $config['encryption_key'] = env('ENCRYPTION_KEY');
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$config['sess_driver'] = env('SESS_DRIVER', 'files');
-$config['sess_table_name'] = env('SESS_DRIVER', 'ip_sessions');
-$config['sess_cookie_name'] = env('SESS_DRIVER', 'ip_session');
+$config['sess_driver'] = env('SESS_DRIVER', 'database');
+//$config['sess_table_name'] = env('SESS_TABLE_NAME', 'ip_sessions');
+$config['sess_cookie_name'] = env('SESS_COOKIE_NAME', 'ip_session');
 $config['sess_expiration'] = env('SESS_EXPIRATION', 864000);
-$config['sess_save_path'] = sys_get_temp_dir();
+$config['sess_save_path'] = env('SESS_TABLE_NAME', 'ip_sessions');;//sys_get_temp_dir();
 $config['sess_match_ip'] = env('SESS_MATCH_IP', true);
 $config['sess_time_to_update'] = 300;
-$config['sess_regenerate_destroy'] = FALSE;
+$config['sess_regenerate_destroy'] = false;
 
 /*
 |--------------------------------------------------------------------------

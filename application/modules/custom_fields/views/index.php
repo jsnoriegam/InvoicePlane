@@ -22,6 +22,7 @@
         <thead>
         <tr>
             <th><?php _trans('table'); ?></th>
+            <th><?php _trans('name'); ?></th>
             <th><?php _trans('label'); ?></th>
             <th><?php _trans('type'); ?></th>
             <th><?php _trans('order'); ?></th>
@@ -34,6 +35,7 @@
             <?php $alpha = str_replace("-", "_", strtolower($custom_field->custom_field_type)); ?>
             <tr>
                 <td><?php echo lang($custom_tables[$custom_field->custom_field_table]); ?></td>
+                <td><?php _htmlsc($custom_field->custom_field_name); ?></td>
                 <td><?php _htmlsc($custom_field->custom_field_label); ?></td>
                 <td><?php _trans($alpha); ?></td>
                 <td><?php echo $custom_field->custom_field_order; ?></td>
