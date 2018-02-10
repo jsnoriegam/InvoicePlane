@@ -149,7 +149,7 @@
 
                     </div>
                 </div>
-
+                <?php if (get_setting('sumex')) { ?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <?php _trans('invoice_sumex'); ?>
@@ -167,7 +167,7 @@
 
                     </div>
                 </div>
-
+                <?php } ?>
             </div>
         </div>
 

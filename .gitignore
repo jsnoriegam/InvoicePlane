@@ -1,6 +1,7 @@
 # Configuration stuff
 /application/config/development
 /application/sessions
+/ip_sessions
 /ipconfig.php
 
 # Dependencies
@@ -11,6 +12,7 @@
 /.htaccess
 .idea
 .sass-cache
+composer.lock
 adminer.php
 /nbproject
 /.php_cs.cache

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title><?php _trans('invoice'); ?></title>
     <link rel="stylesheet"
-          href="<?php echo base_url(); ?>assets/<?php echo get_setting('system_theme', 'invoiceplane'); ?>/css/templates.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/core/css/custom-pdf.css">
+          href="<?php echo file_url('assets/' . get_setting('system_theme', 'invoiceplane') . '/css/templates.css'); ?>">
+    <link rel="stylesheet" href="<?php echo file_url('assets/core/css/custom-pdf.css'); ?>">
 </head>
 <body>
 <header class="clearfix">
@@ -188,6 +188,7 @@
         <?php } ?>
 
         <?php foreach ($invoice_tax_rates as $invoice_tax_rate) : ?>
+            <?php if($invoice_tax_rate->invoice_tax_rate_amount > 0) { ?>
             <tr>
                 <td <?php echo($show_item_discounts ? 'colspan="5"' : 'colspan="4"'); ?> class="text-right">
                     <?php echo htmlsc($invoice_tax_rate->invoice_tax_rate_name) . ' (' . format_amount($invoice_tax_rate->invoice_tax_rate_percent) . '%)'; ?>
@@ -196,6 +197,7 @@
                     <?php echo format_currency($invoice_tax_rate->invoice_tax_rate_amount); ?>
                 </td>
             </tr>
+            <?php } ?>
         <?php endforeach ?>
 
         <?php if ($invoice->invoice_discount_percent != '0.00') : ?>

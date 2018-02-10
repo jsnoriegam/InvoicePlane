@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title><?php _trans('invoice'); ?></title>
     <link rel="stylesheet"
-          href="<?php echo base_url(); ?>assets/<?php echo get_setting('system_theme', 'invoiceplane'); ?>/css/templates.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/core/css/custom-pdf.css">
+          href="<?php echo file_url('assets/' . get_setting('system_theme', 'invoiceplane') . '/css/templates.css'); ?>">
+    <link rel="stylesheet" href="<?php echo file_url('assets/core/css/custom-pdf.css'); ?>">
 </head>
 <body>
 <header class="clearfix">
