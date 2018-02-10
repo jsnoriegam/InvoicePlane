@@ -20,7 +20,7 @@
     });
 </script>
 
-<form method="post" action="<?php echo site_url('mailer/send_quote/' . $quote->quote_id) ?>">
+<form method="post" action="<?php echo site_url('mailer/send_quote/' . $quote->quote_id) ?>" novalidate>
 
     <input type="hidden" name="<?php echo $this->config->item('csrf_token_name'); ?>"
            value="<?php echo $this->security->get_csrf_hash() ?>">

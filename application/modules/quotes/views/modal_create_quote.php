@@ -32,7 +32,7 @@
             // Posts the data to validate and create the quote;
             // will create the new client if necessary
             $.post("<?php echo site_url('quotes/ajax/create'); ?>", {
-                    client_id: $('#create_quote_client_id').val(),
+                    client_id: $('#quote_client_id').val(),
                     quote_date_created: $('#quote_date_created').val(),
                     quote_password: $('#quote_password').val(),
                     user_id: '<?php echo $this->session->userdata('user_id'); ?>',
@@ -49,7 +49,7 @@
                         // The validation was not successful
                         $('.control-group').removeClass('has-error');
                         for (var key in response.validation_errors) {
-                            $('#' + key).parent().parent().addClass('has-error');
+                            $('[name="' + key + '"]').parent().parent().addClass('has-error');
                         }
                     }
                 });
@@ -69,9 +69,9 @@
                    value="<?php echo get_setting('enable_permissive_search_clients'); ?>">
 
             <div class="form-group has-feedback">
-                <label for="create_quote_client_id"><?php _trans('client'); ?></label>
+                <label for="quote_client_id"><?php _trans('client'); ?></label>
                 <div class="input-group">
-                    <select name="client_id" id="create_quote_client_id" class="client-id-select form-control"
+                    <select name="client_id" id="quote_client_id" class="client-id-select form-control"
                             autofocus="autofocus">
                         <?php if (!empty($client)) : ?>
                             <option value="<?php echo $client->client_id; ?>"><?php _htmlsc(format_client($client)); ?></option>

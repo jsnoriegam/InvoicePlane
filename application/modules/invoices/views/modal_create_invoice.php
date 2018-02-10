@@ -32,7 +32,7 @@
             // Posts the data to validate and create the invoice;
             // will create the new client if necessar
             $.post("<?php echo site_url('invoices/ajax/create'); ?>", {
-                    client_id: $('#create_invoice_client_id').val(),
+                    client_id: $('#invoice_client_id').val(),
                     invoice_date_created: $('#invoice_date_created').val(),
                     invoice_group_id: $('#invoice_group_id').val(),
                     invoice_time_created: '<?php echo date('H:i:s') ?>',
@@ -51,7 +51,7 @@
                         // The validation was not successful
                         $('.control-group').removeClass('has-error');
                         for (var key in response.validation_errors) {
-                            $('#' + key).parent().parent().addClass('has-error');
+                            $('[name="' + key + '"]').parent().parent().addClass('has-error');
                         }
                     }
                 });
@@ -76,9 +76,9 @@
                    value="<?php echo get_setting('enable_permissive_search_clients'); ?>">
 
             <div class="form-group has-feedback">
-                <label for="create_invoice_client_id"><?php _trans('client'); ?></label>
+                <label for="invoice_client_id"><?php _trans('client'); ?></label>
                 <div class="input-group">
-                    <select name="client_id" id="create_invoice_client_id" class="client-id-select form-control"
+                    <select name="client_id" id="invoice_client_id" class="client-id-select form-control"
                             autofocus="autofocus">
                         <?php if (!empty($client)) : ?>
                             <option value="<?php echo $client->client_id; ?>"><?php _htmlsc(format_client($client)); ?></option>

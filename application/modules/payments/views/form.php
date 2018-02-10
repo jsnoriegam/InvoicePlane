@@ -22,7 +22,7 @@
     });
 </script>
 
-<form method="post" class="form-horizontal">
+<form method="post" class="form-horizontal" novalidate>
 
     <input type="hidden" name="<?php echo $this->config->item('csrf_token_name'); ?>"
            value="<?php echo $this->security->get_csrf_hash() ?>">
@@ -84,7 +84,7 @@
             </div>
             <div class="col-xs-12 col-sm-6">
                 <input type="text" name="payment_amount" id="payment_amount" class="form-control"
-                       value="<?php echo format_amount($this->mdl_payments->form_value('payment_amount')); ?>">
+                       value="<?php echo $this->mdl_payments->form_value('payment_amount'); ?>">
             </div>
         </div>
 

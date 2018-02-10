@@ -20,7 +20,7 @@
     });
 </script>
 
-<form method="post" action="<?php echo site_url('mailer/send_invoice/' . $invoice->invoice_id) ?>">
+<form method="post" action="<?php echo site_url('mailer/send_invoice/' . $invoice->invoice_id) ?>" novalidate>
     <input type="hidden" name="<?php echo $this->config->item('csrf_token_name'); ?>"
            value="<?php echo $this->security->get_csrf_hash() ?>">
 

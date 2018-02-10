@@ -1,4 +1,4 @@
-<form method="post">
+<form method="post" novalidate>
 
     <input type="hidden" name="<?php echo $this->config->item('csrf_token_name'); ?>"
            value="<?php echo $this->security->get_csrf_hash() ?>">
@@ -77,7 +77,7 @@
 
                             <div class="input-group has-feedback">
                                 <input type="text" name="product_price" id="product_price" class="form-control"
-                                       value="<?php echo format_amount($this->mdl_products->form_value('product_price')); ?>">
+                                       value="<?php echo $this->mdl_products->form_value('product_price'); ?>">
                                 <span class="input-group-addon"><?php echo get_setting('currency_symbol'); ?></span>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
 
                             <div class="input-group has-feedback">
                                 <input type="text" name="purchase_price" id="purchase_price" class="form-control"
-                                       value="<?php echo format_amount($this->mdl_products->form_value('purchase_price')); ?>">
+                                       value="<?php echo $this->mdl_products->form_value('purchase_price'); ?>">
                                 <span class="input-group-addon"><?php echo get_setting('currency_symbol'); ?></span>
                             </div>
                         </div>

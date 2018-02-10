@@ -52,7 +52,7 @@
 
         <div class="row"><?php $this->layout->load_view('layout/alerts'); ?></div>
 
-        <form method="post" action="<?php echo site_url($this->uri->uri_string()); ?>">
+        <form method="post" action="<?php echo site_url($this->uri->uri_string()); ?>" novalidate>
 
             <input type="hidden" name="<?php echo $this->config->item('csrf_token_name'); ?>"
                    value="<?php echo $this->security->get_csrf_hash() ?>">

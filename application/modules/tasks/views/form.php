@@ -10,7 +10,7 @@ if ($this->mdl_tasks->form_value('task_id') && $this->mdl_tasks->form_value('tas
     </script>
 <?php endif ?>
 
-<form method="post" id="task-form">
+<form method="post" id="task-form" novalidate>
 
     <input type="hidden" name="<?php echo $this->config->item('csrf_token_name'); ?>"
            value="<?php echo $this->security->get_csrf_hash() ?>">
@@ -57,7 +57,7 @@ if ($this->mdl_tasks->form_value('task_id') && $this->mdl_tasks->form_value('tas
                             <label for="task_price"><?php _trans('task_price'); ?></label>
                             <div class="input-group">
                                 <input type="text" name="task_price" id="task_price" class="amount form-control"
-                                       value="<?php echo format_amount($this->mdl_tasks->form_value('task_price')); ?>">
+                                       value="<?php echo $this->mdl_tasks->form_value('task_price'); ?>">
                                 <div class="input-group-addon">
                                     <?php echo get_setting('currency_symbol') ?>
                                 </div>

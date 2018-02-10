@@ -36,7 +36,7 @@ function trans($line, $id = '', $default = null)
         $lang_string = $default != null ? $default : $line;
     }
 
-    if ($id != '') {
+    if (isset($id) && $id != '') {
         $lang_string = '<label for="' . $id . '">' . $lang_string . "</label>";
     }
 

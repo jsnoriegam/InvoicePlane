@@ -122,21 +122,21 @@
                     <div class="input-group">
                         <span class="input-group-addon"><?php _trans('quantity'); ?></span>
                         <input type="text" name="item_quantity" class="input-sm form-control amount"
-                               value="<?php echo format_amount($item->item_quantity); ?>">
+                               value="<?php echo $item->item_quantity; ?>">
                     </div>
                 </td>
                 <td class="td-amount">
                     <div class="input-group">
                         <span class="input-group-addon"><?php _trans('price'); ?></span>
                         <input type="text" name="item_price" class="input-sm form-control amount"
-                               value="<?php echo format_amount($item->item_price); ?>">
+                               value="<?php echo $item->item_price; ?>">
                     </div>
                 </td>
                 <td class="td-amount ">
                     <div class="input-group">
                         <span class="input-group-addon"><?php _trans('item_discount'); ?></span>
                         <input type="text" name="item_discount_amount" class="input-sm form-control amount"
-                               value="<?php echo format_amount($item->item_discount_amount); ?>"
+                               value="<?php echo $item->item_discount_amount; ?>"
                                data-toggle="tooltip" data-placement="bottom"
                                title="<?php echo get_setting('currency_symbol') . ' ' . trans('per_item'); ?>">
                     </div>
@@ -269,7 +269,7 @@
                         <div class="input-group input-group-sm">
                             <input id="quote_discount_amount" name="quote_discount_amount"
                                    class="discount-option form-control input-sm amount"
-                                   value="<?php echo format_amount($quote->quote_discount_amount != 0 ? $quote->quote_discount_amount : ''); ?>">
+                                   value="<?php echo $quote->quote_discount_amount != 0 ? $quote->quote_discount_amount : ''; ?>">
 
                             <div
                                     class="input-group-addon"><?php echo get_setting('currency_symbol'); ?></div>
@@ -278,7 +278,7 @@
                     <div class="discount-field">
                         <div class="input-group input-group-sm">
                             <input id="quote_discount_percent" name="quote_discount_percent"
-                                   value="<?php echo format_amount($quote->quote_discount_percent != 0 ? $quote->quote_discount_percent : ''); ?>"
+                                   value="<?php echo $quote->quote_discount_percent != 0 ? $quote->quote_discount_percent : ''; ?>"
                                    class="discount-option form-control input-sm amount">
                             <div class="input-group-addon">&percnt;</div>
                         </div>

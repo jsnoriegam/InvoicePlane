@@ -1,4 +1,4 @@
-<form method="post" class="form-horizontal">
+<form method="post" class="form-horizontal" novalidate>
 
     <div id="headerbar">
         <h1 class="headerbar-title"><?php _trans('email_invoice'); ?></h1>

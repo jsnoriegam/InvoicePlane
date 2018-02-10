@@ -56,7 +56,7 @@
 
                     <div class="controls">
                         <input type="text" name="payment_amount" id="payment_amount" class="form-control"
-                               value="<?php echo(isset($invoice_balance) ? format_amount($invoice_balance) : ''); ?>">
+                               value="<?php echo(isset($invoice_balance) ? $invoice_balance : ''); ?>">
                     </div>
                 </div>
 

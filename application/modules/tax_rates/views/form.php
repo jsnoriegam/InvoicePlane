@@ -1,4 +1,4 @@
-<form method="post" class="form-horizontal">
+<form method="post" class="form-horizontal" novalidate>
 
     <input type="hidden" name="<?php echo $this->config->item('csrf_token_name'); ?>"
            value="<?php echo $this->security->get_csrf_hash() ?>">
@@ -32,7 +32,7 @@
             </div>
             <div class="col-xs-12 col-sm-6">
                 <input type="text" name="tax_rate_percent" id="tax_rate_percent" class="form-control"
-                       value="<?php echo format_amount($this->mdl_tax_rates->form_value('tax_rate_percent')); ?>">
+                       value="<?php echo $this->mdl_tax_rates->form_value('tax_rate_percent'); ?>">
                 <span class="form-control-feedback">%</span>
             </div>
         </div>

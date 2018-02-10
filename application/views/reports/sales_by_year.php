@@ -2,10 +2,7 @@
 <html lang="<?php echo trans('cldr'); ?>">
 <head>
     <title><?php echo trans('sales_by_date'); ?></title>
-    <link rel="stylesheet"
-          href="<?php echo base_url(); ?>assets/<?php echo get_setting('system_theme', 'invoiceplane'); ?>/css/reports.css"
-          type="text/css">
-
+    <link rel="stylesheet" href="<?php echo file_url('assets/' . get_setting('system_theme', 'invoiceplane') . '/css/reports.css'); ?>">
 </head>
 
 <body>

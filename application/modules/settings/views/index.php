@@ -42,7 +42,7 @@
     </li>
 </ul>
 
-<form method="post" id="form-settings" enctype="multipart/form-data">
+<form method="post" id="form-settings" enctype="multipart/form-data" novalidate>
 
     <input type="hidden" name="<?php echo $this->config->item('csrf_token_name'); ?>"
            value="<?php echo $this->security->get_csrf_hash() ?>">

@@ -97,6 +97,7 @@ class Payments extends Admin_Controller
         $this->load->helper('custom_values');
         $this->load->model('invoices/mdl_invoices');
         $this->load->model('payment_methods/mdl_payment_methods');
+        $this->load->model('custom_fields/mdl_payment_custom');
         $this->load->model('custom_fields/mdl_custom_fields');
         $this->load->model('custom_values/mdl_custom_values');
 

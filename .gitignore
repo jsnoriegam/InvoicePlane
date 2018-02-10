@@ -12,7 +12,8 @@
 /.htaccess
 .idea
 .sass-cache
-composer.lock
+/composer.lock
+/package-lock.json
 adminer.php
 /nbproject
 /.php_cs.cache

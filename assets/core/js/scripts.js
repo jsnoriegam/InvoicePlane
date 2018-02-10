@@ -155,6 +155,12 @@ $(document).ready(function () {
 
     $(document).ajaxComplete(function () {
         $('[name="_ip_csrf"]').val(Cookies.get('ip_csrf_cookie'));
+        if(window.fullpageloaderTimeout) {
+            $('#fullpage-loader').fadeOut(200);
+            $('#loader-error').hide();
+            $('#loader-icon').addClass('fa-spin').removeClass('text-danger');
+            clearTimeout(window.fullpageloaderTimeout);
+        }
     });
 
     // Correct the height of the content area
@@ -237,7 +243,9 @@ $(document).ready(function () {
         $('#fullpage-loader').fadeOut(200);
         $('#loader-error').hide();
         $('#loader-icon').addClass('fa-spin').removeClass('text-danger');
-        clearTimeout(window.fullpageloaderTimeout);
+        /*if(window.fullpageloaderTimeout) {
+            clearTimeout(window.fullpageloaderTimeout);
+        }*/
     });
 
     var password_input = $('.passwordmeter-input');
