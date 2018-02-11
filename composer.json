@@ -1,8 +1,16 @@
 {
-  "name": "latinosoft/invoice-plane",
+  "name": "invoiceplane",
   "version": "1.5.6",
-  "description": "Invoice System",
+  "description": "InvoicePlane is a self-hosted open source application for managing your invoices, clients and payments",
+  "homepage": "https://invoiceplane.com",
+  "license": "MIT",
   "type": "project",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/InvoicePlane/mpdf.git"
+    }
+  ],
   "require": {
     "phpmailer/phpmailer": "^6.0.3",
     "mpdf/mpdf": "^7.0.0",
