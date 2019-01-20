@@ -303,7 +303,7 @@ class Mdl_Invoices extends Response_Model
                 'item_task_id' => $invoice_item->item_task_id,
                 'item_name' => $invoice_item->item_name,
                 'item_description' => $invoice_item->item_description,
-                'item_quantity' => $invoice_item->item_quantity,
+                'item_quantity' => $invoice_item->item_quantity * -1,
                 'item_price' => $invoice_item->item_price,
                 'item_discount_amount' => $invoice_item->item_discount_amount,
                 'item_order' => $invoice_item->item_order,
@@ -330,11 +330,11 @@ class Mdl_Invoices extends Response_Model
 
         // Copy the custom fields
         $this->load->model('custom_fields/mdl_invoice_custom');
-        $db_array = $this->mdl_invoice_custom->where('invoice_id', $source_id)->get()->result();
+        $custom_fields = $this->mdl_invoice_custom->where('invoice_id', $source_id)->get()->result();
 
         $form_data = array();
-        foreach ($db_array as $val) {
-            $form_data[$val->invoice_custom_fieldid] = $val->invoice_custom_fieldvalue;
+        foreach ($custom_fields as $field) {
+            $form_data[$field->invoice_custom_fieldid] = $field->invoice_custom_fieldvalue;
         }
         $this->mdl_invoice_custom->save_custom($target_id, $form_data);
     }
@@ -586,7 +586,7 @@ class Mdl_Invoices extends Response_Model
         $invoice = $this->mdl_invoices->get_by_id($invoice_id);
 
         if (!empty($invoice)) {
-            if ($invoice->invoice_status_id == 1) {
+            if ($invoice->invoice_status_id == 1 && $invoice->invoice_number == "") {
                 // Generate new invoice number if applicable
                 if (get_setting('generate_invoice_number_for_draft') == 0) {
                     $invoice_number = $this->get_invoice_number($invoice->invoice_group_id);

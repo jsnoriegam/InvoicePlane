@@ -15,7 +15,9 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
  */
 class Mdl_Custom_Fields extends MY_Model
 {
+
     public $table = 'ip_custom_fields';
+
     public $primary_key = 'ip_custom_fields.custom_field_id';
 
     /**
@@ -55,38 +57,38 @@ class Mdl_Custom_Fields extends MY_Model
      */
     public function validation_rules()
     {
-        return array(
-            'custom_field_table' => array(
+        return [
+            'custom_field_table' => [
                 'field' => 'custom_field_table',
                 'label' => trans('table'),
                 'rules' => 'required'
-            ),
-            'custom_field_name' => array(
+            ],
+            'custom_field_name' => [
                 'field' => 'custom_field_name',
                 'label' => trans('name'),
                 'rules' => 'required|regex_match[/^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$/]|max_length[50]'
-            ),
-            'custom_field_label' => array(
+            ],
+            'custom_field_label' => [
                 'field' => 'custom_field_label',
                 'label' => trans('label'),
-                'rules' => 'required|max_length[50]'
-            ),
-            'custom_field_type' => array(
+                'rules' => 'required|max_length[50]',
+            ],
+            'custom_field_type' => [
                 'field' => 'custom_field_type',
                 'label' => trans('type'),
-                'rules' => 'required'
-            ),
-            'custom_field_order' => array(
+                'rules' => 'required',
+            ],
+            'custom_field_order' => [
                 'field' => 'custom_field_order',
                 'label' => trans('order'),
-                'rules' => 'is_natural'
-            ),
-            'custom_field_location' => array(
+                'rules' => 'is_natural',
+            ],
+            'custom_field_location' => [
                 'field' => 'custom_field_location',
                 'label' => trans('position'),
-                'rules' => 'is_natural'
-            )
-        );
+                'rules' => 'is_natural',
+            ],
+        ];
     }
 
     /**
@@ -170,13 +172,13 @@ class Mdl_Custom_Fields extends MY_Model
      */
     public function custom_tables()
     {
-        return array(
+        return [
             'ip_client_custom' => 'client',
             'ip_invoice_custom' => 'invoice',
             'ip_payment_custom' => 'payment',
             'ip_quote_custom' => 'quote',
-            'ip_user_custom' => 'user'
-        );
+            'ip_user_custom' => 'user',
+        ];
     }
 
     /**
@@ -200,7 +202,7 @@ class Mdl_Custom_Fields extends MY_Model
 
     /**
      * @param integer $field_id
-     * @param string $custom_field_model
+     * @param string  $custom_field_model
      * @param integer $model_id
      * @return string
      */
@@ -227,7 +229,7 @@ class Mdl_Custom_Fields extends MY_Model
     }
 
     /**
-     * @param string $custom_field_model
+     * @param string  $custom_field_model
      * @param integer $model_id
      * @return array
      */
@@ -239,10 +241,10 @@ class Mdl_Custom_Fields extends MY_Model
         $fields = $this->$custom_field_model->by_id($model_id)->get()->result();
 
         if (empty($fields)) {
-            return array();
+            return [];
         }
 
-        $values = array();
+        $values = [];
         $custom_field = str_replace('mdl_', '', $custom_field_model);
 
         foreach ($fields as $field) {
@@ -255,7 +257,7 @@ class Mdl_Custom_Fields extends MY_Model
                 if (!empty($custom_values)) {
                     $key_serialized = $field_id_fieldlabel . '_serialized';
 
-                    $field->$field_id_fieldlabel = array();
+                    $field->$field_id_fieldlabel = [];
                     $field->$key_serialized = '';
 
                     foreach ($custom_values as $custom_value) {
@@ -267,7 +269,7 @@ class Mdl_Custom_Fields extends MY_Model
                         $field->$key_serialized .= $custom_value === end($custom_values) ? '' : ', ';
                     }
                 }
-            } else {
+            } elseif ($field->custom_field_type == 'SINGLE-CHOICE') {
                 $custom_value = $this->mdl_custom_values->get_by_id($field->$field_id_fieldlabel)->result();
 
                 if (!empty($custom_value)) {
@@ -291,13 +293,13 @@ class Mdl_Custom_Fields extends MY_Model
     {
         $this->load->dbforge();
 
-        $column = array(
-            $old_column_name => array(
+        $column = [
+            $old_column_name => [
                 'name' => $new_column_name,
                 'type' => 'VARCHAR',
-                'constraint' => 50
-            )
-        );
+                'constraint' => 50,
+            ],
+        ];
 
         $this->dbforge->modify_column($table_name, $column);
     }
@@ -310,12 +312,12 @@ class Mdl_Custom_Fields extends MY_Model
     {
         $this->load->dbforge();
 
-        $column = array(
-            $column_name => array(
+        $column = [
+            $column_name => [
                 'type' => 'VARCHAR',
-                'constraint' => 256
-            )
-        );
+                'constraint' => 256,
+            ],
+        ];
 
         $this->dbforge->add_column($table_name, $column);
     }
