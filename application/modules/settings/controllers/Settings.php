@@ -33,6 +33,10 @@ class Settings extends Admin_Controller
         $this->config->load('payment_gateways');
         $gateways = $this->config->item('payment_gateways');
 
+        // Get the number formats configurations
+        $this->config->load('number_formats');
+        $number_formats = $this->config->item('number_formats');
+
         // Save input if request is POSt
         if ($this->input->post('settings')) {
             $settings = $this->input->post('settings');
@@ -71,6 +75,13 @@ class Settings extends Admin_Controller
                     $this->mdl_settings->save($key, $value);
 
                 }
+
+                if ($key == 'number_format') {
+                    // Set thousands_separator and decimal_point according to number_format
+                    $this->mdl_settings->save('decimal_point', $number_formats[$value]['decimal_point']);
+                    $this->mdl_settings->save('thousands_separator', $number_formats[$value]['thousands_separator']);
+                }
+
             }
 
             $upload_config = array(
@@ -158,6 +169,7 @@ class Settings extends Admin_Controller
                 'email_templates_invoice' => $this->mdl_email_templates->where('email_template_type', 'invoice')->get()->result(),
                 'gateway_drivers' => $gateways,
                 'gateway_currency_codes' => $currencies,
+                'number_formats' => $number_formats,
                 'first_days_of_weeks' => array('0' => lang('sunday'), '1' => lang('monday'))
             )
         );
