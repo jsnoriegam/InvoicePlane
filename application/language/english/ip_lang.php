@@ -442,6 +442,7 @@ $lang = array(
     'remove'                                       => 'Remove',
     'remove_logo'                                  => 'Remove Logo',
     'report_options'                               => 'Report Options',
+    'report_type'                                  => 'Report Type',
     'reports'                                      => 'Reports',
     'reset'                                        => 'Reset',
     'reset_password'                               => 'Reset password',

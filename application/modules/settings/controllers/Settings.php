@@ -122,6 +122,7 @@ class Settings extends Admin_Controller
         $this->load->model('invoices/mdl_templates');
 
         $this->load->helper('country');
+        $this->load->helper('array');
 
         // Collect the list of templates
         $pdf_invoice_templates = $this->mdl_templates->get_invoice_templates('pdf');
@@ -131,6 +132,12 @@ class Settings extends Admin_Controller
 
         // Get all themes
         $available_themes = $this->mdl_settings->get_themes();
+
+        $currencies = new Money\Currencies\ISOCurrencies();
+
+        $currency_codes = map(function ($currency) {
+            return $currency->getCode();
+        }, $currencies);
 
         // Set data in the layout
         $this->layout->set(
@@ -150,7 +157,7 @@ class Settings extends Admin_Controller
                 'email_templates_quote' => $this->mdl_email_templates->where('email_template_type', 'quote')->get()->result(),
                 'email_templates_invoice' => $this->mdl_email_templates->where('email_template_type', 'invoice')->get()->result(),
                 'gateway_drivers' => $gateways,
-                'gateway_currency_codes' => \Omnipay\Common\Currency::all(),
+                'gateway_currency_codes' => $currencies,
                 'first_days_of_weeks' => array('0' => lang('sunday'), '1' => lang('monday'))
             )
         );

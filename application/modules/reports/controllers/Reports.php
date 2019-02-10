@@ -53,11 +53,18 @@ class Reports extends Admin_Controller
                 'to_date' => $this->input->post('to_date'),
             );
 
-            $html = $this->load->view('reports/payment_history', $data, true);
+            $report_type = $this->input->post('report_type');
+            if($report_type === 'xlsx') {
+                $this->load->helper('xlsx');
 
-            $this->load->helper('mpdf');
+                xlsx_create_payment_report($data, trans('payment_history'));
+            } else {
+                $html = $this->load->view('reports/payment_history', $data, true);
 
-            pdf_create($html, trans('payment_history'), true);
+                $this->load->helper('mpdf');
+
+                pdf_create($html, trans('payment_history'), true);
+            }
         }
 
         $this->layout->buffer('content', 'reports/payment_history_index')->render();

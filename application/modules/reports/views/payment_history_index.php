@@ -51,6 +51,27 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback">
+                            <label for="report_type">
+                                <?php _trans('report_type'); ?>
+                            </label>
+
+                            <div class="input-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="report_type" id="report_type_xlsx" value="xlsx" checked>
+                                        XLSX
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="report_type" id="report_type_pdf" value="pdf">
+                                        PDF
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <input type="submit" class="btn btn-success" name="btn_submit"
                                value="<?php _trans('run_report'); ?>">
 
