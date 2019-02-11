@@ -30,8 +30,7 @@
                             </label>
 
                             <div class="input-group">
-                                <input name="from_date" id="from_date"
-                                       class="form-control datepicker">
+                                <input name="from_date" id="from_date" class="form-control datepicker" autocomplete="off">
                                 <span class="input-group-addon">
                                     <i class="fa fa-calendar fa-fw"></i>
                                 </span>
@@ -44,7 +43,7 @@
                             </label>
 
                             <div class="input-group">
-                                <input name="to_date" id="to_date" class="form-control datepicker">
+                                <input name="to_date" id="to_date" class="form-control datepicker" autocomplete="off">
                                 <span class="input-group-addon">
 									<i class="fa fa-calendar fa-fw"></i>
 							    </span>
