@@ -9,16 +9,7 @@
             var invoice_identifier = "invoice" + $('#invoice_id').val();
             $('#payment_amount').val(amounts[invoice_identifier].replace("&nbsp;", " "));
             $('#payment_method_id').find('option[value="' + invoice_payment_methods[invoice_identifier] + '"]').prop('selected', true);
-
-            if (invoice_payment_methods[invoice_identifier] != 0) {
-                $('.payment-method-wrapper').append("<input type='hidden' name='payment_method_id' id='payment-method-id-hidden' class='hidden' value='" + invoice_payment_methods[invoice_identifier] + "'>");
-                $('#payment_method_id').prop('disabled', true);
-            } else {
-                $('#payment-method-id-hidden').remove();
-                $('#payment_method_id').prop('disabled', false);
-            }
         });
-
     });
 </script>
 
@@ -70,7 +61,8 @@
                 <div class="input-group">
                     <input name="payment_date" id="payment_date"
                            class="form-control datepicker"
-                           value="<?php echo date_from_mysql($this->mdl_payments->form_value('payment_date')); ?>">
+                           value="<?php echo date_from_mysql($this->mdl_payments->form_value('payment_date')); ?>"
+                           autocomplete="off">
                     <span class="input-group-addon">
                         <i class="fa fa-calendar fa-fw"></i>
                     </span>
@@ -95,17 +87,8 @@
                 </label>
             </div>
             <div class="col-xs-12 col-sm-6 payment-method-wrapper">
-
-                <?php
-                // Add a hidden input field if a payment method was set to pass the disabled attribute
-                if ($this->mdl_payments->form_value('payment_method_id')) { ?>
-                    <input type="hidden" name="payment_method_id" class="hidden"
-                           value="<?php echo $this->mdl_payments->form_value('payment_method_id'); ?>">
-                <?php } ?>
-
                 <select id="payment_method_id" name="payment_method_id"
-                	class="form-control simple-select" data-minimum-results-for-search="Infinity"
-                    <?php echo($this->mdl_payments->form_value('payment_method_id') ? 'disabled="disabled"' : ''); ?>>
+                	class="form-control simple-select" data-minimum-results-for-search="Infinity">
 
                     <?php foreach ($payment_methods as $payment_method) { ?>
                         <option value="<?php echo $payment_method->payment_method_id; ?>"

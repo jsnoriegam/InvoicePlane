@@ -56,6 +56,7 @@
     'CR' => 'Costa Rica',
     'HR' => 'Croatia',
     'CU' => 'Cuba',
+    'CW' => 'Curaçao',
     'CY' => 'Cyprus',
     'CZ' => 'Czech Republic',
     'CI' => 'Côte d’Ivoire',

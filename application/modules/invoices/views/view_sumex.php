@@ -361,7 +361,8 @@ if ($this->config->item('disable_read_only') == true) {
                                             <input id="invoice_sumex_treatmentstart" name="sumex_treatmentstart"
                                                    class="input-sm form-control datepicker"
                                                    value="<?php echo date_from_mysql($invoice->sumex_treatmentstart); ?>"
-                                                   type="text">
+                                                   type="text"
+                                                   autocomplete="off">
                                         </div>
                                     </td>
                                 </tr>
@@ -372,7 +373,8 @@ if ($this->config->item('disable_read_only') == true) {
                                             <input id="invoice_sumex_treatmentend" name="sumex_treatmentend"
                                                    class="input-sm form-control datepicker"
                                                    value="<?php echo date_from_mysql($invoice->sumex_treatmentend); ?>"
-                                                   type="text">
+                                                   type="text"
+                                                   autocomplete="off">
                                         </div>
                                     </td>
                                 </tr>
@@ -407,7 +409,8 @@ if ($this->config->item('disable_read_only') == true) {
                                             <input id="invoice_sumex_casedate" name="sumex_casedate"
                                                    class="input-sm form-control datepicker"
                                                    value="<?php echo date_from_mysql($invoice->sumex_treatmentend); ?>"
-                                                   type="text">
+                                                   type="text"
+                                                   autocomplete="off">
                                         </div>
                                     </td>
                                 </tr>
@@ -499,6 +502,7 @@ if ($this->config->item('disable_read_only') == true) {
                                         <input name="invoice_date_created" id="invoice_date_created"
                                                class="form-control datepicker"
                                                value="<?php echo date_from_mysql($invoice->invoice_date_created); ?>"
+                                               autocomplete="off"
                                             <?php if ($invoice->is_read_only == 1) {
                                                 echo 'disabled="disabled"';
                                             } ?>>
@@ -515,6 +519,7 @@ if ($this->config->item('disable_read_only') == true) {
                                         <input name="invoice_date_due" id="invoice_date_due"
                                                class="form-control datepicker"
                                                value="<?php echo date_from_mysql($invoice->invoice_date_due); ?>"
+                                               autocomplete="off"
                                             <?php if ($invoice->is_read_only == 1) {
                                                 echo 'disabled="disabled"';
                                             } ?>>

@@ -81,7 +81,8 @@ if ($this->mdl_tasks->form_value('task_id') && $this->mdl_tasks->form_value('tas
                             <label for="task_finish_date"><?php _trans('task_finish_date'); ?></label>
                             <div class="input-group">
                                 <input name="task_finish_date" id="task_finish_date" class="form-control datepicker"
-                                       value="<?php echo date_from_mysql($this->mdl_tasks->form_value('task_finish_date')); ?>">
+                                       value="<?php echo date_from_mysql($this->mdl_tasks->form_value('task_finish_date')); ?>"
+                                       autocomplete="off">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar fa-fw"></i>
                                 </div>

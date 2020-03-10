@@ -279,7 +279,8 @@ $cv = $this->controller->view_data["custom_values"];
                                     <div class="input-group">
                                         <input name="quote_date_created" id="quote_date_created"
                                                class="form-control input-sm datepicker"
-                                               value="<?php echo date_from_mysql($quote->quote_date_created); ?>"/>
+                                               value="<?php echo date_from_mysql($quote->quote_date_created); ?>"
+                                               autocomplete="off">
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar fa-fw"></i>
                                         </span>
@@ -292,7 +293,8 @@ $cv = $this->controller->view_data["custom_values"];
                                     <div class="input-group">
                                         <input name="quote_date_expires" id="quote_date_expires"
                                                class="form-control input-sm datepicker"
-                                               value="<?php echo date_from_mysql($quote->quote_date_expires); ?>">
+                                               value="<?php echo date_from_mysql($quote->quote_date_expires); ?>"
+                                               autocomplete="off">
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar fa-fw"></i>
                                         </span>

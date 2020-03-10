@@ -76,7 +76,8 @@
                     <div class="input-group">
                         <input name="payment_date" id="payment_date"
                                class="form-control datepicker"
-                               value="<?php echo date(date_format_setting()); ?>">
+                               value="<?php echo date(date_format_setting()); ?>"
+                               autocomplete="off">
                         <span class="input-group-addon">
                             <i class="fa fa-calendar fa-fw"></i>
                         </span>
@@ -88,16 +89,7 @@
                     <label for="payment_method_id"><?php _trans('payment_method'); ?></label>
 
                     <div class="controls">
-
-                        <?php
-                        // Add a hidden input field if a payment method was set to pass the disabled attribute
-                        if ($this->mdl_payments->form_value('payment_method_id')) { ?>
-                            <input type="hidden" name="payment_method_id" class="hidden"
-                                   value="<?php echo $this->mdl_payments->form_value('payment_method_id'); ?>">
-                        <?php } ?>
-
-                        <select name="payment_method_id" id="payment_method_id" class="form-control simple-select"
-                            <?php echo(!empty($invoice_payment_method) ? 'disabled="disabled"' : ''); ?>>
+                        <select name="payment_method_id" id="payment_method_id" class="form-control simple-select">
                             <option value=""><?php _trans('none'); ?></option>
                             <?php foreach ($payment_methods as $payment_method) { ?>
                                 <option value="<?php echo $payment_method->payment_method_id; ?>"

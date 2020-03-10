@@ -116,7 +116,7 @@
                                 class="form-control"
                                 value="<?php echo get_setting('invoice_pre_password', '', true); ?>">
                         </div>
-
+                        <?php /*
                         <div class="form-group">
                             <label for="settings[include_zugferd]">
                                 <?php _trans('invoice_pdf_include_zugferd'); ?>
@@ -132,7 +132,7 @@
                             </select>
                             <p class="help-block"><?php _trans('invoice_pdf_include_zugferd_help'); ?></p>
                         </div>
-
+                        */ ?>
                     </div>
                     <div class="col-xs-12 col-md-6">
 
@@ -376,7 +376,7 @@
 
             </div>
         </div>
-
+        <?php /*
         <div class="panel panel-default">
             <div class="panel-heading">
                 <?php _trans('sumex_settings'); ?>
@@ -471,6 +471,6 @@
 
             </div>
         </div>
-
+        */ ?>
     </div>
 </div>

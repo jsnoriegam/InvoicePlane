@@ -91,6 +91,7 @@
                         <span class="input-group-addon"><?php _trans('date'); ?></span>
                         <input type="text" name="item_date" class="input-sm form-control datepicker"
                                value="<?php echo format_date(@$item->item_date); ?>"
+                               autocomplete="off"
                             <?php if ($invoice->is_read_only == 1) {
                                 echo 'disabled="disabled"';
                             } ?>>
@@ -249,6 +250,7 @@
                             <span class="input-group-addon"><?php _trans('date'); ?></span>
                             <input type="text" name="item_date" class="input-sm form-control datepicker"
                                    value="<?php echo format_date($item->item_date); ?>"
+                                   autocomplete="off"
                                 <?php if ($invoice->is_read_only == 1) {
                                     echo 'disabled="disabled"';
                                 } ?>>

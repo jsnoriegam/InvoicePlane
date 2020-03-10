@@ -10,8 +10,17 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
  * @link		https://invoiceplane.com
  */
 
+
+function xlsx_create_invoice_report(
+    $data,
+    $filename,
+    $password = null
+) {
+    
+}
+
 /**
- * Create a PDF
+ * Create a XLSX
  *
  * @param $html
  * @param $filename

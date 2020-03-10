@@ -72,7 +72,7 @@
                 <label for="recur_start_date"><?php _trans('start_date'); ?></label>
                 <div class="input-group">
                     <input name="recur_start_date" id="recur_start_date"
-                           class="form-control datepicker">
+                           class="form-control datepicker" autocomplete="off">
                     <span class="input-group-addon">
                         <i class="fa fa-calendar fa-fw"></i>
                     </span>
@@ -84,7 +84,7 @@
 
                 <div class="input-group">
                     <input name="recur_end_date" id="recur_end_date"
-                           class="form-control datepicker">
+                           class="form-control datepicker" autocomplete="off">
                     <span class="input-group-addon">
                         <i class="fa fa-calendar fa-fw"></i>
                     </span>

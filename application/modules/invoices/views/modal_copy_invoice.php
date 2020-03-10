@@ -67,7 +67,7 @@
 
                 <div class="input-group">
                     <input name="invoice_date_created_modal" id="invoice_date_created_modal" class="form-control datepicker"
-                           value="<?php echo date_from_mysql(date('Y-m-d', time()), true) ?>">
+                           value="<?php echo date_from_mysql(date('Y-m-d', time()), true) ?>" autocomplete="off">
                     <span class="input-group-addon">
                         <i class="fa fa-calendar fa-fw"></i>
                     </span>

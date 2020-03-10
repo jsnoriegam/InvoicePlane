@@ -37,9 +37,11 @@
     <li>
         <a data-toggle="tab" href="#settings-projects-tasks"><?php _trans('projects'); ?></a>
     </li>
+    <?php /*
     <li>
         <a data-toggle="tab" href="#settings-updates"><?php _trans('updates'); ?></a>
     </li>
+    */ ?>
 </ul>
 
 <form method="post" id="form-settings" enctype="multipart/form-data" novalidate>
@@ -82,10 +84,11 @@
             <div id="settings-projects-tasks" class="tab-pane">
                 <?php $this->layout->load_view('settings/partial_settings_projects_tasks'); ?>
             </div>
-
+            <?php /*
             <div id="settings-updates" class="tab-pane">
                 <?php $this->layout->load_view('settings/partial_settings_updates'); ?>
             </div>
+            */?>
 
         </div>
 

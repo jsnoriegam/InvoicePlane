@@ -52,6 +52,7 @@
     'CI' => 'Costa de Marfil',
     'HR' => 'Croacia',
     'CU' => 'Cuba',
+    'CW' => 'Curazao',
     'DK' => 'Dinamarca',
     'DM' => 'Dominica',
     'EC' => 'Ecuador',

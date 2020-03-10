@@ -290,7 +290,8 @@ $cv = $this->controller->view_data['custom_values'];
                             <div class="input-group">
                                 <input type="text" name="client_birthdate" id="client_birthdate"
                                        class="form-control datepicker"
-                                       value="<?php _htmlsc($bdate); ?>">
+                                       value="<?php _htmlsc($bdate); ?>"
+                                       autocomplete="off">
                                 <span class="input-group-addon">
                                 <i class="fa fa-calendar fa-fw"></i>
                             </span>
