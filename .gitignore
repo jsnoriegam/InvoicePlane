@@ -10,14 +10,14 @@
 
 # Other files
 /.htaccess
-.idea
-.sass-cache
-/composer.lock
-/package-lock.json
-adminer.php
 /nbproject
 /.php_cs.cache
 /doc
+.idea
+.sass-cache
+adminer.php
 composer.lock
+yarn.lock
 package-lock.json
 serve.bat
+
